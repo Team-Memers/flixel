@@ -3,7 +3,7 @@ package flixel.addons.editors.spine.texture;
 import flixel.graphics.FlxGraphic;
 import openfl.Assets;
 import openfl.display.BitmapData;
-import spinehaxe.atlas.AtlasPage;
+// import spinehaxe.atlas.AtlasPage;
 import spinehaxe.atlas.AtlasRegion;
 import spinehaxe.atlas.TextureLoader;
 
