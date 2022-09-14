@@ -3,8 +3,8 @@ package flixel.addons.editors.spine.texture;
 import flixel.graphics.FlxGraphic;
 import openfl.Assets;
 import openfl.display.BitmapData;
-// import spinehaxe.atlas.AtlasPage;
-import spinehaxe.atlas.AtlasRegion;
+import FlixelTextureLoader.AtlasPage;
+import FlixelTextureLoader.AtlasRegion;
 import spinehaxe.atlas.TextureLoader;
 
 class FlixelTextureLoader implements TextureLoader
@@ -32,4 +32,43 @@ class FlixelTextureLoader implements TextureLoader
 	{
 		FlxG.bitmap.remove(cast page.rendererObject);
 	}
+}
+
+class AtlasPage {
+	public var name:String;
+	public var format:Format;
+	public var minFilter:TextureFilter;
+	public var magFilter:TextureFilter;
+	public var uWrap:TextureWrap;
+	public var vWrap:TextureWrap;
+	public var rendererObject:Dynamic;
+	public var width:Int = 0;
+	public var height:Int = 0;
+
+	public function new() {}
+}
+
+
+class AtlasRegion {
+	public var page:AtlasPage;
+	public var name:String;
+	public var x:Int = 0;
+	public var y:Int = 0;
+	public var width:Int = 0;
+	public var height:Int = 0;
+	public var u:Float = 0;
+	public var v:Float = 0;
+	public var u2:Float = 0;
+	public var v2:Float = 0;
+	public var offsetX:Float = 0;
+	public var offsetY:Float = 0;
+	public var originalWidth:Int = 0;
+	public var originalHeight:Int = 0;
+	public var index:Int = 0;
+	public var rotate:Bool = false;
+	public var splits:Array<Int>;
+	public var pads:Array<Int>;
+	public var rendererObject:Dynamic;
+
+	public function new() {}
 }
