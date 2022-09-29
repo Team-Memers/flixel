@@ -598,7 +598,7 @@ class FlxGame extends Sprite
 
 		#if FLX_DEBUG
 		if ((_requestedState is FlxSubState))
-			throw "You can't set FlxSubState class instance as the state for you game";
+			throw "FlxSubState cannot be set as default state.";
 		#end
 
 		FlxG.reset();
@@ -638,7 +638,7 @@ class FlxGame extends Sprite
 		if (resetStuffOnSwitch)
 		{
 			// we need to clear bitmap cache only after previous state is destroyed, which will reset useCount for FlxGraphic objects
-			FlxG.bitmap.clearCache();
+			FlxG.bitmap.mapCacheAsDestroyable();
 
 			// clearing shaders cause people love fucking around
 			_filters = [];
@@ -668,7 +668,11 @@ class FlxGame extends Sprite
 
 		if (!_state.postCreated)
 			_state.createPost();
-		resetStuffOnSwitch = true;
+		
+		if (resetStuffOnSwitch) {
+			FlxG.bitmap.clearCache();
+		} else
+			resetStuffOnSwitch = true;
 	}
 
 	function gameStart():Void
